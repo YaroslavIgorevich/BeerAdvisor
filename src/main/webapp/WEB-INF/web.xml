@@ -7,7 +7,7 @@
 
     <servlet>
         <servlet-name>BeerServlet</servlet-name>
-        <servlet-class>com.bilyk.BeerSelect</servlet-class>
+        <servlet-class>com.beerapp.web.BeerSelect</servlet-class>
     </servlet>
 
     <servlet-mapping>
