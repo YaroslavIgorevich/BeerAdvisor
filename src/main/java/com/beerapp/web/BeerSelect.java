@@ -1,8 +1,11 @@
 package com.beerapp.web;
 
+import com.beerapp.model.BeerExpert;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.*;
+import java.util.List;
 
 public class BeerSelect extends HttpServlet {
 
@@ -11,7 +14,8 @@ public class BeerSelect extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         out.println("Beer Selection Advice<br>");
-        String c = request.getParameter("color");
-        out.println("<br>Got beer color " + c);
+        String selectedColor = request.getParameter("color");
+        List suggestions = BeerExpert.getBrands(selectedColor);
+        out.println("<br>You may try " + suggestions.toString());
     }
 }
