@@ -3,7 +3,36 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
+    <listener>
+        <listener-class>com.beerapp.web.BeerServletContextListener</listener-class>
+    </listener>
+
     <display-name>Archetype Created Web Application</display-name>
+
+    <context-param>
+        <param-name>adminEmail</param-name>
+        <param-value>some@shity@email.com</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>jdbc.driver</param-name>
+        <param-value>com.mysql.jdbc.Driver</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>jdbc.url</param-name>
+        <param-value>jdbc:mysql://localhost/customersdb</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>jdbc.username</param-name>
+        <param-value>Yaroslav</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>jdbc.password</param-name>
+        <param-value>Igor-e4ek</param-value>
+    </context-param>
 
     <servlet>
         <servlet-name>BeerServlet</servlet-name>
@@ -13,5 +42,35 @@
     <servlet-mapping>
         <servlet-name>BeerServlet</servlet-name>
         <url-pattern>/SelectBeer.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetSQLJar</servlet-name>
+        <servlet-class>com.beerapp.web.JarReturn</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>GetSQLJar</servlet-name>
+        <url-pattern>/GetJar.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DBTest</servlet-name>
+        <servlet-class>com.beerapp.web.DatabaseTest</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>DBTest</servlet-name>
+        <url-pattern>/DatabaseTest.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SessionManager</servlet-name>
+        <servlet-class>com.beerapp.web.ManageSessions</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SessionManager</servlet-name>
+        <url-pattern>/SessionsTest.do</url-pattern>
     </servlet-mapping>
 </web-app>
